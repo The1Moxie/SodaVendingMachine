@@ -1,4 +1,5 @@
 ﻿using System;
+using VendingMachine_Library;
 
 namespace SodaVendingMachine
 {
@@ -6,7 +7,7 @@ namespace SodaVendingMachine
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
         }
     }
 }
