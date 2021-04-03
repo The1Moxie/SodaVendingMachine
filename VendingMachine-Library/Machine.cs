@@ -23,7 +23,7 @@ namespace VendingMachine_Library
 
         public void buyDrink(int drink_id)
         {
-            throw new NotImplementedException();
+            DeleteDrink(drink_id);
         }
 
         public void CreateDrink(string Name, double Price)
@@ -33,20 +33,26 @@ namespace VendingMachine_Library
 
         public void DeleteDrink(int drink_id)
         {
-            throw new NotImplementedException();
+            SQL.RemoveDrink(GetDrinkByID(drink_id));
+
         }
 
-        public Drink GetDrinkByID(int id)
+        public Drink GetDrinkByID(int drink_id)
         {
-            throw new NotImplementedException();
+            Drink tempDrink = _drinks.Find(drink => drink.DrinkID == drink_id);
+            if (tempDrink !=null)
+            {
+                return tempDrink;
+            }
+            else
+            {
+                throw new DrinkNotFoundException("The Drink was not found", drink_id);
+            }
         }
 
         public List<Drink> GetDrinks()
         {
             return _drinks;
-        }
-
-        
-        
+        }      
     }
 }
