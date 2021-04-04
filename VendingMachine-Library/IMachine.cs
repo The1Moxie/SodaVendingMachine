@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VendingMachine_Library
 {
-    interface IMachine
+    public interface IMachine
     {
         void buyDrink(int drink_id);
         Drink GetDrinkByID(int id);
