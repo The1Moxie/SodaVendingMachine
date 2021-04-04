@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VendingMachine_Library
 {
-    class Machine : IMachine
+    public class Machine : IMachine
     {
         private List<Drink> _drinks = new List<Drink>();
 
@@ -33,7 +33,9 @@ namespace VendingMachine_Library
 
         public void DeleteDrink(int drink_id)
         {
-            SQL.RemoveDrink(GetDrinkByID(drink_id));
+            Drink tempDrink = GetDrinkByID(drink_id);
+            SQL.RemoveDrink(tempDrink);
+            _drinks.Remove(tempDrink);
 
         }
 
