@@ -23,12 +23,30 @@ namespace VendingMachine_Library
 
         public void buyDrink(int drink_id)
         {
-            DeleteDrink(drink_id);
+            Drink tempDrink = GetDrinkByID(drink_id);
+            try
+            {
+                if (tempDrink.Quantity < 1)
+                {
+                    throw new OutOfStockException("The Drink is out of Stock", drink_id);
+                }
+                else
+                {
+                    tempDrink.Quantity--;
+                    SQL.updateDrink(tempDrink);
+                }
+            }
+            catch (OutOfStockException oex)
+            {
+                Console.WriteLine(oex.Message.ToString());
+            }
+            
         }
 
-        public void CreateDrink(string Name, double Price)
+
+        public void CreateDrink(string Name, double Price, int Quantity)
         {
-            SQL.AddDrink(new Drink(Name, Price));
+            SQL.AddDrink(new Drink(Name, Price, Quantity));
         }
 
         public void DeleteDrink(int drink_id)
