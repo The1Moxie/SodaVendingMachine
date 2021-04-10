@@ -40,6 +40,12 @@ namespace VendingMachine_Library
             _ = db.Insert(drink);
         }
 
+        static internal void updateDrink(Drink drink)
+        {
+            var db = new SQLiteConnection(dbPath);
+            db.Update(drink);
+        }
+
         static internal void RemoveDrink(Drink drink)
         {
             var db = new SQLiteConnection(dbPath);
