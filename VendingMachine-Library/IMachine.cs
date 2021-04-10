@@ -11,7 +11,7 @@ namespace VendingMachine_Library
         void buyDrink(int drink_id);
         Drink GetDrinkByID(int id);
         List<Drink> GetDrinks();
-        void CreateDrink(string Name, double Price);
+        void CreateDrink(string Name, double Price, int Quantitiy);
         void DeleteDrink(int drink_id);
     }
 }
